@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700;800;900&display=swap');
+	*{
+	   padding:0;
+	   margin:0;
+	   
+	 }
+	body{
+	   background-image: url("https://wallpaperaccess.com/full/1496231.jpg");
+	}
+	.main{
+	   width:500px;
+	   margin: 30px auto 0 auto;
+	}
+	h1{
+	  text-align:center;
+	  padding: 5px;
+
+	}
+	div.register{
+	    /* background: rgb(211, 227, 229); */
+		background-color: rgb(221, 210, 199);
+	    width:100%;
+		
+	    font-size: 20px;
+	    border-radius: 15px;
+	    border-top: 5px solid #0faca1;
+	    box-shadow: 2px 2px 15px;
+		
+	
+	}
+	form#register{
+	   margin: 50px;
+        }
+	input#email,#password,#repassword,#country{
+	    width: 360px;
+	    padding:5px;
+	}
+	input#fname,#lname{
+	   padding: 3px;
+	   width: 160px;
+	}
+	#submit{
+	  width:320px;
+	  margin: 0 0 20 30;
+	  padding: 10px;
+	  background-color: #0faca1;
+	  font-size: 30px;
+	  color:#eff3f3;
+	  border: none;
+	  border-radius: 300px;
+	  font-family: 'Spartan',sans-serif;
+	}
+	#submit:hover{
+		background: #0a867c;
+  text-decoration: none;
+	}
+	
+     inputspan#emailid{
+	   color: red;
+	   font-weight:bold;
+	}
+	span#icon{
+          border:1px solid black;
+	  padding: 3px;
+	  font-size:16px;
+	}
+	#reg{
+		margin: 40px;
+	}
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+	<div class="register">
+          <h1 id="reg">Registration Form</h1>
+         <form name="forms" action="#" id="register" onsubmit="return validation()" >
+       	   <span id="icon">&#9993;</span>
+           <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" >
+	   <span id="emailid" style="color:red; font-weight:bold;"></span><br><br>
+	  <span id="icon">&#128274;</span>
+          <input type="password" name="password" placeholder="Password" id="password">
+	  <span id="pass" style="color:red; font-weight:bold;"></span><br><br>
+	  <span id="icon">&#128274;</span> 
+          <input type="password" name="repassword" placeholder="Re-type Password" id="repassword">
+	  <span id="repass" style="color:red; font-weight:bold;"></span><br><br>
+	  <span id="icon">&#128100;</span>
+          <input type="text" name="name" placeholder="First Name" id="fname">&nbsp;&nbsp;
+	  <span id="firstname" style="color:red; font-weight:bold;"></span>
+	  <span id="icon">&#128100;</span>
+	  <input type="text" name="lname" placeholder="Last Name" id="lname">
+	  <span id="lastname" style="color:red; font-weight:bold;"></span><br><br>
+	  <input type="radio" id="male" name="gender" value="Male"><label for="Male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	  <input type="radio" id="female" name="gender" value="Female"><label for="Female">Female</label><br><br>
+	  <span id="gen" style="color:red; font-weight:bold;"></span>
+	  <select id="country">
+            <option>Select a Country</option> 
+	    <option>India</option>
+	    <option>Pakistan</option>
+	    <option>China</option>
+	    <option>USA</option>
+	  </select><br><br>
+	  <input type="checkbox" name="click1" value="agree">&nbsp;&nbsp;<label>I agree with terms and conditions</label>
+	  <span id="click1" style="color:red; font-weight:bold;"></span><br><br>
+	  <input type="checkbox" name="click2" value="receive">&nbsp;&nbsp;<label>I want to receive the newsletter</label>
+	  <span id="click2" style="color:red; font-weight:bold;"></span><br><br>  
+	  <input type="submit" value="Register" id="submit">
+        </form>
+      </div>
+    </div>
+    <script>
+	function validation(){
+	    var email = document.getElementById("email").value;
+	    if(email==""){
+	       document.getElementById("emailid").innerHTML="Please Fill email Field"; 
+	       return false;
+	    }
+	    
+            var password = document.getElementById("password").value;
+	    if(password==""){
+	       document.getElementById("pass").innerHTML="Please Fill password Field"; 
+	       return false;
+	    }
+
+ 	    var repassword = document.getElementById("repassword").value;
+	    if(repassword==""){
+	       document.getElementById("repass").innerHTML="Please Fill re-password Field"; 
+	       return false;
+	    }
+
+	    var fname = document.getElementById("fname").value;
+	    if(fname==""){
+	       document.getElementById("firstname").innerHTML="Please Fill First Name Field"; 
+	       return false;
+	    }
+
+	    var lname = document.getElementById("lname").value;
+	    if(lname==""){
+	       document.getElementById("lastname").innerHTML="Please FILL Last Name  Field"; 
+	       return false;
+	    }
+	    
+	    var gen = document.forms.gender;
+	    for(var i=0; i<gen.length; i++){
+	         if(gen[i].checked==true){
+		      return true;
+		 }
+	         document.getElementById("gen").innerHTML="Please select gender";
+		 return false;
+	    }
+	 
+	   var click= document.getElementById("click1").value;
+	   if(click=="agree"){
+	       return true;
+	   }
+	   else{
+	   document.getElementById("click1").innerHTML="Please check the option";
+		 return false;}
+
+         var click2= document.forms.click2;
+	   if(click2.checked==true){
+	       return true;
+	   }
+	   else{
+	   document.getElementById("click2").innerHTML="Please check the option";
+		 return false; }   
+	}
+    </script>
+  </body>
+</html>
